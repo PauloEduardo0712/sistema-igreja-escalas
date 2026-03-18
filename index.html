@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema de Escalas — Shekinah IAD</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/login.css">
+  <link rel="stylesheet" href="css/admin.css">
+  <link rel="stylesheet" href="css/voluntario.css">
+  <link rel="stylesheet" href="css/responsivo.css">
+</head>
+<body>
+
+<!-- ==================== TELA DE LOGIN ==================== -->
+<div id="telaLogin" class="login-page">
+  <div class="login-card">
+
+    <div class="login-logo">
+      <img src="img/logo-shekinah.svg" alt="Shekinah IAD">
+      <h2>Sistema de Escalas<br>Ministeriais</h2>
+      <p>Igreja Shekinah IAD — Um Projeto de Deus</p>
+    </div>
+
+    <div class="login-divider"></div>
+
+    <div class="login-field">
+      <label>Usuário</label>
+      <input type="text" id="loginUsuario" placeholder="Digite seu usuário" value="admin">
+    </div>
+    <div class="login-field">
+      <label>Senha</label>
+      <input type="password" id="loginSenha" placeholder="Digite sua senha" value="1234">
+    </div>
+    <div class="login-field">
+      <label>Perfil de Acesso</label>
+      <select id="loginPerfil">
+        <option value="admin">👑 Administrador</option>
+        <option value="voluntario">🙋 Voluntário</option>
+      </select>
+    </div>
+
+    <button class="btn-login" onclick="fazerLogin()">Entrar no Sistema</button>
+
+    <div class="login-hint">
+      <strong>Admin:</strong> admin / 1234
+      &nbsp;|&nbsp;
+      <strong>Voluntário:</strong> joao, maria, carlos, ana, pedro — senha: 1234
+    </div>
+
+    <p class="login-footer">Shekinah IAD © 2026 — Todos os direitos reservados</p>
+  </div>
+</div>
+
+<!-- ==================== APP CONTAINER ==================== -->
+<div id="appContainer" class="hidden">
+
+  <!-- Header -->
+  <header class="app-header">
+    <div class="header-brand">
+      <img src="img/logo-shekinah.svg" alt="Logo" class="header-logo">
+      <div class="header-brand-text">
+        <span class="header-brand-name">Shekinah IAD</span>
+        <span class="header-brand-sub">Sistema de Escalas</span>
+      </div>
+      <span class="header-badge" id="headerBadge">Admin</span>
+    </div>
+    <div class="header-user">
+      <span id="headerNome">Administrador</span>
+      <button class="btn-logout" onclick="fazerLogout()">Sair</button>
+    </div>
+  </header>
+
+  <!-- Layout principal -->
+  <div class="app-layout">
+    <aside class="sidebar" id="sidebar"></aside>
+    <main class="main-content" id="mainContent"></main>
+  </div>
+
+</div>
+
+<!-- ==================== MODAL ==================== -->
+<div class="modal-overlay hidden" id="modalOverlay" onclick="fecharModal(event)">
+  <div class="modal" id="modalContent"></div>
+</div>
+
+<!-- ==================== TOAST CONTAINER ==================== -->
+<div id="toastContainer" style="
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+"></div>
+
+<!-- ==================== SCRIPTS ==================== -->
+<!-- Ordem importa: dados → utils → validações → conflitos → login → admin → escalas → voluntario -->
+<script src="js/dados.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/validacoes.js"></script>
+<script src="js/conflitos.js"></script>
+<script src="js/login.js"></script>
+<script src="js/admin.js"></script>
+<script src="js/escalas.js"></script>
+<script src="js/voluntario.js"></script>
+
+</body>
+</html>
